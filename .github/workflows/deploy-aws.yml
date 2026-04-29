@@ -33,13 +33,13 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_KEY_PEM }}
           script: |
-              docker pull ${{ secrets.DOCKER_USERNAME }}/front:latest
-              docker stop front || true
-              docker rm front || true
-              dockerrun -d \
-              --name front \
-              -p 80:80 \
-              -- restart always \
-              ${{ secrets.DOCKER_USERNAME }}/front:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/front:latest
+            docker stop front || true
+            docker rm front || true
+            dockerrun -d \
+            --name front \
+            -p 80:80 \
+            -- restart always \
+            ${{ secrets.DOCKER_USERNAME }}/front:latest
          
 
